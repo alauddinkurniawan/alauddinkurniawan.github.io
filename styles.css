@@ -5,11 +5,32 @@
 }
 
 body {
+
+}
+
+/* Hide scrollbar */
+body {
+    overflow-y: scroll; /* Ensures scrolling works even when hidden */
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f4;
 }
+
+/* Minimal scrollbar */
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #f4f4f4;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #fdd835;
+    border-radius: 5px;
+}
+
 
 /* Header Styles */
 header {
@@ -26,6 +47,7 @@ header .container {
 
 header h1 {
     font-size: 2rem;
+    
 }
 
 header nav ul {
@@ -218,3 +240,89 @@ footer {
     background-color: #fbc02d;
     color: #fff;
 }
+
+
+.scroller{
+    max-width: 400px;
+    overflow :  hidden;
+    outline: 3px solid lime;
+}
+
+.scroller__inner {
+    padding-block: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.scroller {
+    max-width: fit-content;
+    /* max-height: ; */
+  }
+  
+  .scroller__inner {
+    padding-block: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7.5rem;
+  }
+  
+  .scroller[data-animated="true"] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent
+    );
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  }
+  
+  .scroller[data-animated="true"] .scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 40s)
+      var(--_animation-direction, forwards) linear infinite;
+  }
+  
+  .scroller[data-direction="right"] {
+    --_animation-direction: reverse;
+  }
+  
+  .scroller[data-direction="left"] {
+    --_animation-direction: forwards;
+  }
+  
+  .scroller[data-speed="fast"] {
+    --_animation-duration: 30s;
+  }
+  
+  .scroller[data-speed="slow"] {
+    --_animation-duration: 60s;
+  }
+  
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+  
+  #animated-role {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white; /* Adjust to match your design */
+    border-right: 2px solid grey; /* Blinking cursor effect */
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+
+
