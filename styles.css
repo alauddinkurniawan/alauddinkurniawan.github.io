@@ -308,7 +308,7 @@ footer {
   }
   
   #animated-role {
-    font-weight: bold;
+    font-weight: small;
     font-size: 1.2rem;
     color: white; /* Adjust to match your design */
     border-right: 2px solid grey; /* Blinking cursor effect */
