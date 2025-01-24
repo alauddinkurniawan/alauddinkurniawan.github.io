@@ -30,16 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     const roles = [
-        'Game Programmer',
-        'Frontend Developer',
-        'UI/UX Designer',
-        'Storyteller',
-        'Changemaker',
+        'Frontend Developer, Game Programmer, UI UX Designer, Storyteller, Active Volunteer',
+        'Agent of Change',
     ]; // List of roles
 
     
-    const typingSpeed = 100; // Speed of typing (ms)
-    const delayBetweenRoles = 1500; // Delay before switching roles (ms)
+    const typingSpeed = 50; // Speed of typing (ms)
+    const delayBetweenRoles = 2000; // Delay before switching roles (ms)
 
     const animatedRole = document.getElementById('animated-role');
     

@@ -9,12 +9,14 @@ html, body {
     padding: 0;
     width : 100%;
     min-width: 450px;
+    scroll-behavior: smooth;
+    scroll-snap-type:proximity;
    
 }
 /* Hide scrollbar */
 body {
     overflow-y: scroll; /* Ensures scrolling works even when hidden */
-    font-family: 'Roboto', sans-serif;
+    font-family: kelvetica, sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f4;
@@ -37,7 +39,7 @@ body::-webkit-scrollbar-thumb {
 
 /* Header Styles */
 header {
-    background: #fdd835;
+    background: linear-gradient(45deg, #fdd835, #fbc02d, #ffd700);
     color: #fff;
     padding: 1rem 0;
 }
@@ -46,11 +48,15 @@ header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 header h1 {
-    font-size: 2rem;
-    
+    font-size: 1.5rem;
+    font-family: kelvetica, Arial, sans-serif ;
+    font-style: normal;
+    color: #333;
+    font-weight: bold;
 }
 
 header nav ul {
@@ -72,6 +78,7 @@ header nav ul li a {
 .container {
     width: 80%;
     margin: 0 auto;
+    
 }
 
 section {
@@ -106,12 +113,14 @@ section {
     font-size: 1.8em;
     color: #333;
     margin-bottom: 10px;
+    
 }
 
 .about-text p {
     font-size: 1em;
     color: #555;
     line-height: 1.6;
+    padding-right: 50px;
 }
 
 /* Projects Section */
@@ -131,32 +140,7 @@ section {
 
 .card h3 {
     margin-bottom: 0.5rem;
-    color: #fdd835;
-}
-
-/* Form Styles */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form input, form textarea, form button {
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-form button {
-    background: #fdd835;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-form button:hover {
-    background: #fbc02d;
+    color: #333;
 }
 
 /* Footer Styles */
@@ -166,6 +150,34 @@ footer {
     background: #333;
     color: #fff;
     margin-top: 2rem;
+}
+
+
+#skills ul {
+    list-style : none;
+    padding : 0;
+}
+
+#skills li{
+    display : inline-block;
+    margin : 5px;
+    padding : 10px 20px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    border : 1px solid #ccc;
+    transition: all 0.3 ease;
+}
+
+#skills li:hover {
+    background-color: #e0e0e0; /* Slight change on hover */
+    border-color: #888; /* Darken the border on hover */
+}
+
+#contacts .text {
+    display: flex; /* Use flexbox for layout */
+    justify-content: left; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    
 }
 
 /* Responsive Styles */
@@ -182,8 +194,16 @@ footer {
 
     .about-text {
         text-align: center;
+        
+        
+    }
+
+    .about-text p {
+        padding-right: 25px;
+        padding-left: 25px;
     }
 }
+
 /* Hero Section */
 #hero {
     position: relative;
@@ -205,19 +225,26 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('Hero_Banner.png') no-repeat center center/cover; /* Replace with your image */
-    filter: blur(8px); /* Adjust the blur intensity as needed */
-    z-index: -1; /* Ensure the background stays behind the text */
-    transform: scale(1.1); /* Slight scaling to avoid edges showing */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: -1; /* Keep it behind the text */
 }
 
-#hero h2,
-#hero p,
-
+#hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('Hero_Banner.png') no-repeat center center/cover; /* Replace with your image */
+    filter: blur(8px); /* Adjust blur as needed */
+    z-index: -2; /* Keep the background below the overlay */
+}
 
 #hero h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
 }
 
 #hero p {
@@ -244,7 +271,7 @@ footer {
 
 .hero-button:hover {
     background-color: #fdd835;
-    color: #fff;
+    color: #f3f3f3;
     transition: 500ms;
 }
 
@@ -339,5 +366,13 @@ footer {
     }
 }
 
+@font-face {
+    font-family: quickZIP ;
+    src: url(font_faces/QUICK-ZIP.otf);
+}
 
+@font-face {
+    font-family: kelvetica;
+    src: url(font_faces/KelveticaNobis-A5z6.ttf);
+}
 
