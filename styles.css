@@ -4,10 +4,13 @@
     box-sizing: border-box;
 }
 
-body {
-
+html, body {
+    margin: 0;
+    padding: 0;
+    width : 100%;
+    min-width: 450px;
+   
 }
-
 /* Hide scrollbar */
 body {
     overflow-y: scroll; /* Ensures scrolling works even when hidden */
@@ -23,7 +26,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    background: #f4f4f4;
+    background: #fff;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -89,6 +92,7 @@ section {
     max-width: 300px; /* Limit size */
     min-width: 100px; /* Prevent shrinking too small */
     border-radius: 2.5%;
+    margin-left : 50px;
     object-fit: cover;
     flex-shrink: 1;
     transition: width 0.3s ease;
@@ -173,6 +177,7 @@ footer {
 
     .about-photo {
         width: 30vw; /* Increase size for smaller screens */
+        margin-left: 0px;
     }
 
     .about-text {
@@ -189,6 +194,7 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
     overflow: hidden; /* Ensure the blur effect stays within the section */
 }
 
@@ -207,9 +213,7 @@ footer {
 
 #hero h2,
 #hero p,
-.hero-button {
-    z-index: 1; /* Keep the text and button above the blurred background */
-}
+
 
 #hero h2 {
     font-size: 2.5rem;
@@ -234,11 +238,14 @@ footer {
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    z-index: 1;
+    transition: 500ms;
 }
 
 .hero-button:hover {
-    background-color: #fbc02d;
+    background-color: #fdd835;
     color: #fff;
+    transition: 500ms;
 }
 
 
@@ -316,6 +323,14 @@ footer {
     overflow: hidden;
     display: inline-block;
     animation: blink 0.7s steps(1) infinite;
+}
+
+.animated-text-wrapper {
+    height: 1.2rem; /* Set to the expected height of the text */
+    display: flex;
+    align-items: center; /* Align the text vertically within the wrapper */
+    justify-content: center; /* Align the text horizontally (optional) */
+    overflow: hidden; /* Prevent layout issues with animation overflow */
 }
 
 @keyframes blink {
