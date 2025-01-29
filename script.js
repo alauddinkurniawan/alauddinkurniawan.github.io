@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const roles = [
         'Frontend Developer, Game Programmer, UI UX Designer, Storyteller, Active Volunteer',
-        'Agent of Change',
+        'Agent of Change.',
     ]; // List of roles
 
     
@@ -68,4 +68,38 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+let currentIndex = 0;
+
+function updateCarousel() {
+    const carousel = document.querySelector('.carousel');
+    const items = document.querySelectorAll('.carousel-item');
+    const itemWidth = items[0].offsetWidth + 20; // Includes margin
+    const visibleItems = Math.floor(carousel.parentElement.offsetWidth / itemWidth);
+
+    carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+
+    // Adjust index for seamless looping
+    if (currentIndex >= items.length - visibleItems) {
+        currentIndex = items.length - visibleItems;
+    }
+    if (currentIndex < 0) {
+        currentIndex = 0;
+    }
+}
+
+function nextSlide() {
+    const items = document.querySelectorAll('.carousel-item');
+    currentIndex = (currentIndex + 1) % items.length;
+    updateCarousel();
+}
+
+function prevSlide() {
+    const items = document.querySelectorAll('.carousel-item');
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    updateCarousel();
+}
+
+// Update carousel on window resize for responsiveness
+window.addEventListener('resize', updateCarousel);
 

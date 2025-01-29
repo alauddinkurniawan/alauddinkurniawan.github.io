@@ -13,6 +13,31 @@ html, body {
     scroll-snap-type:proximity;
    
 }
+
+.hover-text span {
+    display: inline-block;
+    transition: color 0.1s ease-in-out;
+    cursor: default;
+    user-select: none;
+}
+
+.hover-text span:hover {
+    color: white; /* Change to any color */
+    cursor: default;
+    user-select: none;
+}
+
+.name {
+    display: flex; /* Use flex to treat the entire text as a block */
+    justify-content: left; /* Optionally, center the text */
+    align-items: center; /* Optionally, vertically align */
+}
+
+.name span {
+    display: inline-block; /* Ensures each letter is inline, but will remain together when stretched */
+}
+
+
 /* Hide scrollbar */
 body {
     overflow-y: scroll; /* Ensures scrolling works even when hidden */
@@ -57,6 +82,8 @@ header h1 {
     font-style: normal;
     color: #333;
     font-weight: bold;
+    cursor : default;
+    user-select: none;
 }
 
 header nav ul {
@@ -66,19 +93,34 @@ header nav ul {
 
 header nav ul li {
     margin-left: 2rem;
+    user-select: none;
+}
+
+header nav ul li :hover {
+    color: snow;
+    transition: ease-in-out;
+    user-select: none;
 }
 
 header nav ul li a {
     color: #333;
     text-decoration: none;
     font-weight: bold;
+    transition: 300ms;
 }
 
 /* General Section Styles */
 .container {
     width: 80%;
     margin: 0 auto;
-    
+}
+
+
+
+
+h2 {
+    width: 80%;
+
 }
 
 section {
@@ -107,6 +149,8 @@ section {
 
 .about-text {
     flex: 1;
+    margin : 2rem;
+    text-align: justify;
 }
 
 .about-text h2 {
@@ -188,14 +232,20 @@ footer {
     }
 
     .about-photo {
-        width: 30vw; /* Increase size for smaller screens */
+        width: 40vw; /* Increase size for smaller screens */
         margin-left: 0px;
     }
 
     .about-text {
+        text-align: justify;
+           
+    }
+
+    .about-text h2{
         text-align: center;
-        
-        
+        margin-left : auto;
+        margin-right : auto;
+
     }
 
     .about-text p {
@@ -215,6 +265,10 @@ footer {
     align-items: center;
     justify-content: center;
     
+    height: 65vh; /* Makes it the full height of the viewport */
+    overflow: hidden; /* Prevents content from overflowing the section */
+    position: relative; /* Ensures child elements like text remain positioned correctly */
+
     overflow: hidden; /* Ensure the blur effect stays within the section */
 }
 
@@ -254,6 +308,15 @@ footer {
     margin-bottom: 2rem;
 }
 
+.hero-container {
+    width: 100%;
+    padding : 1rem;
+}
+
+.hero-container h2{
+    margin: 0 auto;
+}
+
 .hero-button {
     display: inline-block;
     padding: 10px 20px;
@@ -266,30 +329,20 @@ footer {
     font-weight: bold;
     transition: background-color 0.3s ease;
     z-index: 1;
-    transition: 500ms;
+    transition: 300ms;
 }
 
 .hero-button:hover {
     background-color: #fdd835;
     color: #f3f3f3;
-    transition: 500ms;
+    transition: ease-in-out;
 }
 
-
-.scroller{
-    max-width: 400px;
-    overflow :  hidden;
-    outline: 3px solid lime;
-}
-
-.scroller__inner {
-    padding-block: 1rem;
-    display: flex;
-    gap: 1rem;
-}
+/* Animation for Infinite Scroll*/
 
 .scroller {
     max-width: fit-content;
+    overflow :  hidden;
     /* max-height: ; */
   }
   
@@ -340,14 +393,17 @@ footer {
       transform: translate(calc(-50% - 0.5rem));
     }
   }
+
+/* Animation of Typing subtitles */
   
-  #animated-role {
+#animated-role {
     font-weight: small;
     font-size: 1.2rem;
     color: white; /* Adjust to match your design */
     border-right: 2px solid grey; /* Blinking cursor effect */
     white-space: nowrap;
     overflow: hidden;
+    
     display: inline-block;
     animation: blink 0.7s steps(1) infinite;
 }
@@ -357,6 +413,7 @@ footer {
     display: flex;
     align-items: center; /* Align the text vertically within the wrapper */
     justify-content: center; /* Align the text horizontally (optional) */
+    white-space: nowrap;
     overflow: hidden; /* Prevent layout issues with animation overflow */
 }
 
@@ -375,4 +432,74 @@ footer {
     font-family: kelvetica;
     src: url(font_faces/KelveticaNobis-A5z6.ttf);
 }
+
+/* General Styles
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+
+.carousel-wrapper {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    max-width: 45%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 0 10px;
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.carousel-item h3 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.carousel-item p {
+    font-size: 1em;
+    color: #666;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    z-index: 10;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        max-width: 90%;
+    }
+} */
 
