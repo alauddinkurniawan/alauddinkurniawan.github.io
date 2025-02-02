@@ -12,21 +12,22 @@ html, body {
     min-width: 450px;
     scroll-behavior: smooth;
     scroll-snap-type:proximity;
-   
 }
+
+
+
 
 .hover-text span {
     display: inline-block;
     transition: color 0.1s ease-in-out;
-    cursor: default;
+    cursor: pointer;
     user-select: none;
+    will-change: color;
 }
 
-
-
 .hover-text span:hover {
-    color: white; /* Change to any color */
-    cursor: default;
+    color: #fdd835; /* Change to any color */
+    cursor:pointer; 
     user-select: none;
 }
 
@@ -35,6 +36,7 @@ html, body {
     justify-content: left; /* Optionally, center the text */
     align-items: center; /* Optionally, vertically align */
     height: 35px;
+    color: snow;
 }
 
 .name span {
@@ -68,17 +70,49 @@ body::-webkit-scrollbar-thumb {
 
 /* Header Styles */
 header {
-    position: sticky; /* Keep the header fixed at the top */
+    position: fixed; /* Keep the header fixed at the top */
     top: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(45deg, yellow, #fbc02d, #ffd700);
-    color: #fff;
     padding: 0.75rem 0;
-    z-index: 1000;
+    z-index: 10;
     transition: top 0.3s ease-in-out; /* Smooth transition for hiding/showing */
     display: flex;
 }
+
+.header-top {
+    background : transparent ;
+}
+
+.headerbtns-top {
+    
+    text-decoration: none;
+} 
+
+.headerbtns-top:hover{
+    color: #fbc02d;
+}
+
+.name-top {
+    color : snow;
+}
+
+
+.header-bottom {
+    background :  linear-gradient(45deg, yellow, #fbc02d, #ffd700);
+}
+
+.headerbtns-bottom {
+    color : #333;
+}
+
+.headerbtns-bottom :hover {
+    color : white;
+}
+.name-bottom {
+    color : #333;
+}
+
 
 
 
@@ -110,18 +144,20 @@ header nav ul li {
     user-select: none;
 }
 
-header nav ul li :hover {
-    color: snow;
+header nav ul :hover {
+    color: white;
     transition: ease-in-out;
     user-select: none;
 }
 
 header nav ul li a {
-    color: #333;
+    color: white;
     text-decoration: none;
     font-weight: bold;
     transition: 300ms;
 }
+
+
 
 .nav-links {
     display: flex;
@@ -138,7 +174,7 @@ header nav ul li a {
     padding: 10px 15px;
     border: none;
     cursor: pointer;
-    color: #333;
+
     text-decoration: none;
     font-weight: bold;
     transition: 300ms;
@@ -227,10 +263,15 @@ section {
 /* About Me Section */
 .about-container {
     display: flex;
+    justify-items: center;
     align-items: center;
     gap: 50px;
-    margin: 40px auto;
-    max-width: 900px;
+
+
+    padding: 50px;
+    margin-top : 10px;
+    margin-bottom: 10px;
+    
 }
 
 .about-photo {
@@ -248,12 +289,16 @@ section {
     flex: 1;
     margin : 2rem;
     text-align: justify;
+    margin-top : 10px;
+    margin-bottom: 10px;
 }
 
 .about-text h2 {
     font-size: 1.8em;
     color: #333;
+    margin-top : 10px;
     margin-bottom: 10px;
+    
     
 }
 
@@ -261,14 +306,18 @@ section {
     font-size: 1em;
     color: #555;
     line-height: 1.6;
-    padding-right: 50px;
+    padding-right: 20px;
+    margin-top : 10px;
+    margin-bottom: 10px;
 }
 
 /* Projects Section */
 #projects .grid {
+    margin: 10px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    gap: 0.5rem;
+    place-items: center;
 }
 
 .card {
@@ -277,11 +326,19 @@ section {
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    min-width: 250px;
+    text-align: center;
 }
+
 
 .card h3 {
     margin-bottom: 0.5rem;
     color: #333;
+}
+
+.card p {
+    text-align: justify;
 }
 
 /* Footer Styles */
@@ -294,12 +351,12 @@ footer {
 }
 
 
-#skills ul {
+#squircle-border ul {
     list-style : none;
     padding : 0;
 }
 
-#skills li{
+#squircle-border li{
     display : inline-block;
     margin : 5px;
     padding : 10px 20px;
@@ -310,7 +367,7 @@ footer {
     cursor: default;
 }
 
-#skills li:hover {
+#squircle-border li:hover {
     background-color: #e0e0e0; /* Slight change on hover */
     border-color: #888; /* Darken the border on hover */
 }
@@ -322,13 +379,8 @@ footer {
     
 }
 
-
-
-
-
-
 /* Responsive Styles */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
     .nav-links {
         display: none; /* Hide the navigation links */
@@ -339,9 +391,25 @@ footer {
     }
 
     .menu-btn:hover {
-        color: snow;
+        
         transition: ease-in-out;
         user-select: none;
+    }
+
+    .menu-btn-top {
+        color : snow;
+    }
+
+    .menu-btn-top:hover {
+        color :#fbc02d
+    }
+    
+    .menu-btn-bottom {
+        color : #333;
+    }
+
+    .menu-btn-bottom:hover {
+        color : white;
     }
 
     header nav ul li {
@@ -355,17 +423,19 @@ footer {
     .about-container {
         flex-direction: column;
         text-align: center;
+        gap: 10px;
+
+        
+
     }
 
     .about-photo {
-        width: 500px; /* Increase size for smaller screens */
+        width: 100vh; /* Increase size for smaller screens */
         margin-left: 0px;
     }
 
     .about-text {
         text-align: justify;
-
-        
     }
 
     .about-text h2{
@@ -378,6 +448,7 @@ footer {
     .about-text p {
         padding-right: 25px;
         padding-left: 25px;
+        
     }
 }
 
@@ -386,17 +457,14 @@ footer {
     position: relative;
     color: #fff;
     text-align: center;
-    padding: 100px 20px;
+    padding-bottom: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     
-    height: 60vh; /* Makes it the full height of the viewport */
+    height: 100vh; /* Makes it the full height of the viewport */
     overflow: hidden; /* Prevents content from overflowing the section */
-    position: relative; /* Ensures child elements like text remain positioned correctly */
-
-    overflow: hidden; /* Ensure the blur effect stays within the section */
 }
 
 #hero::before {
@@ -406,7 +474,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.85);
      /* Semi-transparent black overlay */
     z-index: -1; /* Keep it behind the text */
 }
@@ -419,8 +487,8 @@ footer {
     width: 100%;
     height: 100%;
     background: url('Hero_Banner.png') no-repeat center center/cover; /* Your background image */
-    background-color: #000;
-    filter: blur(3px); 
+    background-color: #333;
+    filter: blur(8px); 
     z-index: -2; /* Keep behind overlay */
     
 }
@@ -450,12 +518,17 @@ footer {
     margin: 0 auto;
 }
 
+.hero-container a {
+    display : flex;
+    justify-content: center;
+}
+
 .hero-button {
     display: inline-block;
     padding: 10px 20px;
     font-size: 1rem;
-    color: #333;
-    background: linear-gradient(45deg, yellow, #fbc02d, #ffd700);
+    color: white;
+    background: transparent;
     border: none;
     border-radius: 5px;
     text-decoration: none;
@@ -466,14 +539,15 @@ footer {
 }
 
 .hero-button:hover {
-    background-color: #fdd835;
-    color: #f3f3f3;
+    color: #fbc02d;
     transition: ease-in-out;
 }
 
 /* Animation for Infinite Scroll*/
 
 .scroller {
+
+    position: relative;
     max-width: fit-content;
     overflow :  hidden;
     /* max-height: ; */

@@ -5,46 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alki's Portfolio</title>
     <link rel="icon" href="data:image/svg+xml,utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><text x='0' y='12' font-size='12'>📓</text></svg>">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward" />
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1 class="hover-text">
-                <a href="#hero" style="text-decoration: none; color: #333;">
-                <div class="name"> 
-                    <span>A</span><span>l</span><span>a</span><span>u</span><span>d</span><span>d</span><span>i</span><span>n</span>
-                </div>
-                <div class="name">
-                    <span>K</span><span>u</span><span>r</span><span>n</span><span>i</span><span>a</span><span>w</span><span>a</span><span>n</span>
-                </div>
-                </a>
-            </h1>
-            
-            <nav class="nav-links">
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                </ul>
-            </nav>
-            <button class="menu-btn">Menu</button>
-
-            <div class="sidebar">
-                <button class="close-btn">&times;</button>
-                <nav>
-                    <a href="#about">About</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#skills">Skills</a>
-                </nav>
-            </div>
-            
-        </div>
-    </header>
+    
 
     <main>
+        <header>
+            <div class="container" >
+                <h1 class="hover-text">
+                    <a href="#hero" style="text-decoration: none; ;">
+                    <div class="name"> 
+                        <span>A</span><span>l</span><span>a</span><span>u</span><span>d</span><span>d</span><span>i</span><span>n</span>
+                    </div>
+                    <div class="name">
+                        <span>K</span><span>u</span><span>r</span><span>n</span><span>i</span><span>a</span><span>w</span><span>a</span><span>n</span>
+                    </div>
+                    </a>
+                </h1>
+                
+                <nav class="nav-links">
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#squircle-border">Skills</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-btn">Menu</button>
+    
+                <div class="sidebar">
+                    <button class="close-btn">&times;</button>
+                    <nav>
+                        <a href="#about">About</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#squircle-border">Skills</a>
+                    </nav>
+                </div>
+                
+            </div>
+        </header>
         <section id="hero">
             <div class="hero-container">
                 <h2>Change the world, Take a step</h2>
@@ -54,7 +56,10 @@
                     </div>
                     
                 </p>
-                <a href="#projects" class="hero-button">View My Work</a>
+                <a href="#projects" class="hero-button">View My Work <span class="material-symbols-outlined" style="padding-left: 10px;">
+                    arrow_forward
+                    </span>
+                </a>
             </div>
         </section>
         
@@ -65,9 +70,7 @@
                 <div class="about-text">
                     <h2>About Me</h2>
                     <p>
-                        An undergraduate student at Telkom University, majoring in Informatics, with academic and practical experience in game development, UX research, and problem-solving. 
-                        Experienced in people development after being active in various organizations such as AIESEC, Student English Society, Kontent HIMAF, etc. 
-                        Focused on leveraging technology to enhance human experiences and create innovative solutions.
+                        An undergraduate student at Telkom University, majoring in Informatics, with a solid blend of academic and practical experience in game development, UX research, and problem-solving. A strong background in people development gained through active involvement in organizations like AIESEC, Student English Society, and Kontent HIMAF. Focused on leveraging technology to enhance human experiences and create innovative solutions. Passionate about driving positive change through technology, with a commitment to improving user experiences and solving complex challenges in diverse fields.
                     </p>
                 </div>
             </div>
@@ -96,14 +99,16 @@
                 <div class="grid">
                     <div class="card" >
                         <h3>Tanam-Tanam Umbi</h3>
-                        <iframe frameborder="0" src="https://itch.io/embed/3153363?link_color=faf15b" width="208" height="167"><a href="https://g5-creative-studios.itch.io/tanam-tanam-umbi">Tanam Tanam Umbi by G5 Creative, g.4vi, Riki Fadly, Maulana-play</a></iframe>
+                        <iframe frameborder="0" src="https://itch.io/embed/3153363?link_color=faf15b" width="208" height="167" ><a href="https://g5-creative-studios.itch.io/tanam-tanam-umbi">Tanam Tanam Umbi by G5 Creative, g.4vi, Riki Fadly, Maulana-play</a></iframe>
                         <p>A combination of the classics "Diner Dash" and "Plants vs Zombies" in a form of a 2D top down relaxing farming game, why not give it a shot? ;) </p>
                     </div>
+
+                    
                 </div>
             </div>
         </section>
 
-        <section id="skills">
+        <section id="squircle-border">
             <div class="container">
                 <h2>Skills</h2>
                 <ul>
@@ -121,7 +126,7 @@
             </div>
         </section>
 
-        <section id="skills">
+        <section id="squircle-border">
             <div class="container">
                 <h2>Programming Languages</h2>
                 <ul>
