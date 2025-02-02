@@ -69,37 +69,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-let currentIndex = 0;
 
-function updateCarousel() {
-    const carousel = document.querySelector('.carousel');
-    const items = document.querySelectorAll('.carousel-item');
-    const itemWidth = items[0].offsetWidth + 20; // Includes margin
-    const visibleItems = Math.floor(carousel.parentElement.offsetWidth / itemWidth);
-
-    carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-
-    // Adjust index for seamless looping
-    if (currentIndex >= items.length - visibleItems) {
-        currentIndex = items.length - visibleItems;
+window.addEventListener("scroll", function () {
+    let header = document.querySelector("header");
+    if (window.scrollY > 50) {
+        header.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+    } else {
+        header.style.boxShadow = "none";
     }
-    if (currentIndex < 0) {
-        currentIndex = 0;
+});
+
+let lastScrollY = window.scrollY;
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY === 0) {
+        // If at the top of the page, show the header fully
+        header.style.top = "0";
+    } else if (window.scrollY > lastScrollY) {
+        // Scrolling down → hide the header
+        header.style.top = "-100px"; // Adjust this value based on your header height
+    } else {
+        // Scrolling up → show the header
+        header.style.top = "0";
     }
-}
+    lastScrollY = window.scrollY;
+});
 
-function nextSlide() {
-    const items = document.querySelectorAll('.carousel-item');
-    currentIndex = (currentIndex + 1) % items.length;
-    updateCarousel();
-}
+//sidebar
 
-function prevSlide() {
-    const items = document.querySelectorAll('.carousel-item');
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
-    updateCarousel();
-}
+const menuButton = document.querySelector('.menu-btn');
+const closeButton = document.querySelector('.close-btn');
+const sidebar = document.querySelector('.sidebar');
+const overlay = document.querySelector('.overlay');
 
-// Update carousel on window resize for responsiveness
-window.addEventListener('resize', updateCarousel);
+// Open sidebar when menu button is clicked
+menuButton.addEventListener('click', () => {
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
+});
+
+// Close sidebar when close button or overlay is clicked
+closeButton.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+});
+
+overlay.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+});
+
 

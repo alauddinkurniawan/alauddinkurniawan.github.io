@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 html, body {
@@ -21,6 +22,8 @@ html, body {
     user-select: none;
 }
 
+
+
 .hover-text span:hover {
     color: white; /* Change to any color */
     cursor: default;
@@ -31,6 +34,7 @@ html, body {
     display: flex; /* Use flex to treat the entire text as a block */
     justify-content: left; /* Optionally, center the text */
     align-items: center; /* Optionally, vertically align */
+    height: 35px;
 }
 
 .name span {
@@ -64,10 +68,20 @@ body::-webkit-scrollbar-thumb {
 
 /* Header Styles */
 header {
-    background: linear-gradient(45deg, #fdd835, #fbc02d, #ffd700);
+    position: sticky; /* Keep the header fixed at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(45deg, yellow, #fbc02d, #ffd700);
     color: #fff;
-    padding: 1rem 0;
+    padding: 0.75rem 0;
+    z-index: 1000;
+    transition: top 0.3s ease-in-out; /* Smooth transition for hiding/showing */
+    display: flex;
 }
+
+
+
 
 header .container {
     display: flex;
@@ -109,6 +123,89 @@ header nav ul li a {
     transition: 300ms;
 }
 
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* Hide the menu button by default */
+.menu-btn {
+    font-family: kelvetica, Arial, sans-serif;
+    font-size: large;
+    display: none;
+    background: transparent;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 300ms;
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -15rem; /* Initially hidden */
+    width: 15rem;
+    height: 100%;
+    background: #333;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    transition: right 0.3s ease-in-out;
+}
+
+/* Sidebar links */
+.sidebar nav a {
+    color: white;
+    text-decoration: none;
+    width: 15rem;
+    padding: 1rem;
+    text-align: right;
+    display: block;
+}
+
+.sidebar nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Overlay to darken background when sidebar is open */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Initially hidden */
+}
+
+/* When sidebar is open */
+.sidebar.active {
+    right: 0;
+}
+
+.overlay.active {
+    display: block;
+}
+
 /* General Section Styles */
 .container {
     width: 80%;
@@ -137,7 +234,7 @@ section {
 }
 
 .about-photo {
-    width: 20vw; /* Enlarge when screen shrinks */
+    width: 25vw; /* Enlarge when screen shrinks */
     max-width: 300px; /* Limit size */
     min-width: 100px; /* Prevent shrinking too small */
     border-radius: 2.5%;
@@ -170,7 +267,7 @@ section {
 /* Projects Section */
 #projects .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
 }
 
@@ -178,7 +275,7 @@ section {
     background: #fff;
     padding: 1rem;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -210,6 +307,7 @@ footer {
     border-radius: 20px;
     border : 1px solid #ccc;
     transition: all 0.3 ease;
+    cursor: default;
 }
 
 #skills li:hover {
@@ -224,21 +322,50 @@ footer {
     
 }
 
+
+
+
+
+
 /* Responsive Styles */
 @media (max-width: 600px) {
+
+    .nav-links {
+        display: none; /* Hide the navigation links */
+    }
+    
+    .menu-btn {
+        display: block; /* Show the menu button */
+    }
+
+    .menu-btn:hover {
+        color: snow;
+        transition: ease-in-out;
+        user-select: none;
+    }
+
+    header nav ul li {
+        text-align: center;
+        display: flex;
+        align-items: center;
+       
+        user-select: none;
+    }
+
     .about-container {
         flex-direction: column;
         text-align: center;
     }
 
     .about-photo {
-        width: 40vw; /* Increase size for smaller screens */
+        width: 500px; /* Increase size for smaller screens */
         margin-left: 0px;
     }
 
     .about-text {
         text-align: justify;
-           
+
+        
     }
 
     .about-text h2{
@@ -265,7 +392,7 @@ footer {
     align-items: center;
     justify-content: center;
     
-    height: 65vh; /* Makes it the full height of the viewport */
+    height: 60vh; /* Makes it the full height of the viewport */
     overflow: hidden; /* Prevents content from overflowing the section */
     position: relative; /* Ensures child elements like text remain positioned correctly */
 
@@ -279,7 +406,8 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    background-color: rgba(0, 0, 0, 0.6);
+     /* Semi-transparent black overlay */
     z-index: -1; /* Keep it behind the text */
 }
 
@@ -290,15 +418,18 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('Hero_Banner.png') no-repeat center center/cover; /* Replace with your image */
-    filter: blur(8px); /* Adjust blur as needed */
-    z-index: -2; /* Keep the background below the overlay */
+    background: url('Hero_Banner.png') no-repeat center center/cover; /* Your background image */
+    background-color: #000;
+    filter: blur(3px); 
+    z-index: -2; /* Keep behind overlay */
+    
 }
 
 #hero h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
+    
 }
 
 #hero p {
@@ -311,6 +442,8 @@ footer {
 .hero-container {
     width: 100%;
     padding : 1rem;
+    position: absolute;
+    
 }
 
 .hero-container h2{
@@ -322,7 +455,7 @@ footer {
     padding: 10px 20px;
     font-size: 1rem;
     color: #333;
-    background-color: #fdd835;
+    background: linear-gradient(45deg, yellow, #fbc02d, #ffd700);
     border: none;
     border-radius: 5px;
     text-decoration: none;
