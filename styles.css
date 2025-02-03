@@ -14,21 +14,24 @@ html, body {
     scroll-snap-type:proximity;
 }
 
-
-
-
 .hover-text span {
     display: inline-block;
     transition: color 0.1s ease-in-out;
-    cursor: pointer;
-    user-select: none;
+    
     will-change: color;
 }
 
-.hover-text span:hover {
-    color: #fdd835; /* Change to any color */
-    cursor:pointer; 
+.hover-text span:hover{
+    color :#fbc02d ;
+}
+
+.hover-text-top:hover {
+    color: #fbc02d;
     user-select: none;
+}
+
+.hover-text-bottom:hover {
+    color: white !important;
 }
 
 .name {
@@ -76,45 +79,39 @@ header {
     width: 100%;
     padding: 0.75rem 0;
     z-index: 10;
-    transition: top 0.3s ease-in-out; /* Smooth transition for hiding/showing */
+    transition: top 0.3s ease-in-out, background-color 0.2s ease-in-out; /* Smooth transition for hiding/showing */
     display: flex;
 }
 
-.header-top {
-    background : transparent ;
-}
 
-.headerbtns-top {
-    
-    text-decoration: none;
-} 
 
-.headerbtns-top:hover{
+.headerbtns-top:hover {
     color: #fbc02d;
 }
 
-.name-top {
-    color : snow;
+.header-top {
+    background-color: transparent;
+    transition:  top 0.3s ease-in-out, background-color 0.2s ease-in-out;
 }
 
-
 .header-bottom {
-    background :  linear-gradient(45deg, yellow, #fbc02d, #ffd700);
+    /*background: linear-gradient(45deg, yellow, #fbc02d, #ffd700); */
+    background-color: #fbc02d;
+    transition:  top 0.3s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .headerbtns-bottom {
-    color : #333;
+    color: #333;
+    
 }
 
-.headerbtns-bottom :hover {
-    color : white;
+.headerbtns-bottom:hover {
+    color: white;
 }
+
 .name-bottom {
-    color : #333;
+    color: #333;
 }
-
-
-
 
 
 header .container {
@@ -145,7 +142,7 @@ header nav ul li {
 }
 
 header nav ul :hover {
-    color: white;
+    color: #fbc02d;
     transition: ease-in-out;
     user-select: none;
 }
@@ -519,27 +516,32 @@ footer {
 }
 
 .hero-container a {
-    display : flex;
-    justify-content: center;
+    display: inline-flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    
+
 }
 
 .hero-button {
-    display: inline-block;
-    padding: 10px 20px;
+    padding: 7.5px;
+    width: 11rem;
     font-size: 1rem;
     color: white;
     background: transparent;
-    border: none;
-    border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
-    transition: background-color 0.3s ease;
     z-index: 1;
     transition: 300ms;
+    background : transparent;
+    /* border-color: white;
+    border: 2px solid white;
+    border-radius: 9px; */
 }
 
 .hero-button:hover {
     color: #fbc02d;
+    border-color: #fbc02d;
     transition: ease-in-out;
 }
 

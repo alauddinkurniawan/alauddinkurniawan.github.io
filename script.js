@@ -79,6 +79,7 @@ const header = document.querySelector("header");
 const headerButtons = document.querySelectorAll("header nav ul li a"); // Target all <a> elements
 const nameElements = document.querySelectorAll(".name");
 const menuBtn = document.querySelectorAll(".menu-btn");
+const hoverSpan = document.querySelectorAll(".hover-text span");
 
 
 window.addEventListener("scroll", () => {
@@ -96,6 +97,9 @@ window.addEventListener("scroll", () => {
     menuBtn.forEach(button => {
       button.classList.add("menu-btn-top");
     });
+    hoverSpan.forEach(button => {
+      button.classList.add("hover-text-top");
+    });
 
     // Remove bottom classes
     header.classList.remove("header-bottom");
@@ -107,6 +111,9 @@ window.addEventListener("scroll", () => {
     });
     menuBtn.forEach(button => {
       button.classList.remove("menu-btn-bottom");
+    });
+    hoverSpan.forEach(button => {
+      button.classList.remove("hover-text-bottom");
     });
 
     //header.style.background = "transparent"; // Darker background when scrolling
@@ -134,6 +141,9 @@ window.addEventListener("scroll", () => {
     menuBtn.forEach(button => {
       button.classList.remove("menu-btn-top");
     });
+    hoverSpan.forEach(button => {
+      button.classList.remove("hover-text-top");
+    });
 
     // Add bottom classes
     header.classList.add("header-bottom");
@@ -145,6 +155,9 @@ window.addEventListener("scroll", () => {
     });
     menuBtn.forEach(button => {
       button.classList.add("menu-btn-bottom");
+    });
+    hoverSpan.forEach(button => {
+      button.classList.add("hover-text-bottom");
     });
    
     //headerButtons.forEach(button => button.style.color = "#333"); // Apply to all buttons
